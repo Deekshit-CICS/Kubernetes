@@ -9,4 +9,4 @@ ADD https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27
 RUN tar -xvzf apache-tomcat-10.0.27.tar.gz
 RUN mv apache-tomcat-10.0.27/* /opt/tomcat
 EXPOSE 8080
-CMD ["/opt/tomcat/catalina.sh","run"]
+CMD ["/opt/tomcat/bin/catalina.sh","run"]
