@@ -1,41 +1,6 @@
 pipeline {
     agent any
-    environment {     
-    DOCKERHUB_CREDENTIALS= credentials('DockerHub')     
-    PROJECT_ID = 'utility-vista-372807'
-    CLUSTER_NAME = 'deploydk'
-    LOCATION = 'us-central1-c'
-    CREDENTIALS_ID = 'My First Project'
-    }
-    
     stages {
-        
-        stage ('Checkout Dockerfile'){
-            steps{
-                git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/Deekshit-CICS/Kubernetes.git'
-            }
-        }
-        stage('Build Docker Image') {
-            steps {
-                echo "Print Existing Images"
-                sh 'docker images'
-                sh 'pwd'
-                echo "Building docker Image"
-                sh 'docker build -t dockerdk194/mytomcat /var/lib/jenkins/workspace/BuildDocker'
-            }
-        }
-        stage('Login to Docker HUB') {
-            steps {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'               
-            	echo 'Login Completed'    
-            }
-        }
-        stage('Push Image to Docker Registry') {
-            steps {
-                sh 'docker push dockerdk194/mytomcat'                 
-                echo 'Push Image Completed'   
-            }
-        }
         stage('Deploy to GKE') {
             steps{
                 step([
@@ -49,9 +14,4 @@ pipeline {
             }
         }
     }
-    post{
-    always {  
-      sh 'docker logout'           
-    }      
-  } 
 }
