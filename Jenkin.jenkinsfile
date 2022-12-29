@@ -1,5 +1,12 @@
 pipeline {
     agent any
+    environment {     
+    DOCKERHUB_CREDENTIALS= credentials('DockerHub')     
+    PROJECT_ID = 'utility-vista-372807'
+    CLUSTER_NAME = 'deploydk'
+    LOCATION = 'us-central1-c'
+    CREDENTIALS_ID = 'My First Project'
+    }
     stages {
         stage ('Checkout Manifest File'){
             steps{
