@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage ('Checkout Manifest File'){
+            steps{
+                git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/Deekshit-CICS/Kubernetes.git'
+            }
+        }
         stage('Deploy to GKE') {
             steps{
                 step([
