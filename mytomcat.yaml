@@ -18,3 +18,17 @@ spec:
         image: dockerdk194/mytomcat
         ports:
         - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: nodeport-svc-demo
+spec:
+  type: NodePort
+  selector:
+    app: mytomcat
+  ports:
+  - name: demo-port
+    protocol: TCP
+    port: 80
+    targetPort: 8080
