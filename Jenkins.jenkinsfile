@@ -1,0 +1,81 @@
+pipeline {
+    agent any
+    environment {     
+    DOCKERHUB_CREDENTIALS= credentials('DockerHub')     
+    PROJECT_ID = 'utility-vista-372807'
+    CLUSTER_NAME = 'deploydk'
+    LOCATION = 'us-central1-c'
+    CREDENTIALS_ID = 'My First Project'
+    }
+    stages {
+        stage ('Checkout Manifest File'){
+            steps{
+                git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/Deekshit-CICS/Kubernetes.git'
+            }
+        }
+        stage('Create Namespace') {
+            steps{
+                step([
+                $class: 'KubernetesEngineBuilder',
+                projectId: env.PROJECT_ID,
+                clusterName: env.CLUSTER_NAME,
+                location: env.LOCATION,
+                manifestPattern: '/var/lib/jenkins/workspace/GKE_Test/CreateNamespace.yaml',
+                credentialsId: env.CREDENTIALS_ID,
+                verifyDeployments: true])
+            }
+        }
+        
+        stage('Create ServiceAccount') {
+            steps{
+                step([
+                $class: 'KubernetesEngineBuilder',
+                projectId: env.PROJECT_ID,
+                clusterName: env.CLUSTER_NAME,
+                location: env.LOCATION,
+                manifestPattern: '/var/lib/jenkins/workspace/GKE_Test/serviceAccount.yaml',
+                credentialsId: env.CREDENTIALS_ID,
+                verifyDeployments: true])
+            }
+        }
+        
+        stage('Create Volume') {
+            steps{
+                step([
+                $class: 'KubernetesEngineBuilder',
+                projectId: env.PROJECT_ID,
+                clusterName: env.CLUSTER_NAME,
+                location: env.LOCATION,
+                manifestPattern: '/var/lib/jenkins/workspace/GKE_Test/volume.yaml',
+                credentialsId: env.CREDENTIALS_ID,
+                verifyDeployments: true])
+            }
+        }
+        
+        stage('Create Deployment') {
+            steps{
+                step([
+                $class: 'KubernetesEngineBuilder',
+                projectId: env.PROJECT_ID,
+                clusterName: env.CLUSTER_NAME,
+                location: env.LOCATION,
+                manifestPattern: '/var/lib/jenkins/workspace/GKE_Test/deployment.yaml',
+                credentialsId: env.CREDENTIALS_ID,
+                verifyDeployments: true])
+            }
+        }
+        
+        stage('Create Service') {
+            steps{
+                step([
+                $class: 'KubernetesEngineBuilder',
+                projectId: env.PROJECT_ID,
+                clusterName: env.CLUSTER_NAME,
+                location: env.LOCATION,
+                manifestPattern: '/var/lib/jenkins/workspace/GKE_Test/service.yaml',
+                credentialsId: env.CREDENTIALS_ID,
+                verifyDeployments: true])
+            }
+        }
+    }
+}
