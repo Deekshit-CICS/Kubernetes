@@ -11,5 +11,5 @@ RUN mv apache-tomcat-10.0.27/* /opt/tomcat
 EXPOSE 8080
 WORKDIR /var/lib/jenkins/workspace/BuildDocker/
 RUN pwd
-COPY /var/lib/jenkins/workspace/BuildDocker/SpringJPAApp-0.0.1-SNAPSHOT.war /opt/tomcat/webapps
+COPY SpringJPAApp-0.0.1-SNAPSHOT.war /opt/tomcat/webapps
 CMD ["/opt/tomcat/bin/catalina.sh","run"]
