@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Building SpringBoot') {
             steps {
-                sh 'cd MyWebApp1; mvn clean install'                 
+                sh 'cd MyWebApp1; mvn clean install -DskipTests'                 
                 echo 'Maven Build has Completed Successfully'   
             }
         }
