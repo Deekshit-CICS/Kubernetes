@@ -36,6 +36,12 @@ pipeline {
                 echo 'Push Image Completed'   
             }
         }
+        stage('Building SpringBoot') {
+            steps {
+                sh 'cd MyWebApp1; mvn clean install'                 
+                echo 'Maven Build has Completed Successfully'   
+            }
+        }
         stage('Deploy to GKE') {
             steps{
                 step([
