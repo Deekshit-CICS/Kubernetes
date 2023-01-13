@@ -15,12 +15,12 @@ pipeline {
                 git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/Deekshit-CICS/Kubernetes.git'
             }
         }
-        stage('Building SpringBoot') {
+        /*stage('Building SpringBoot') {
             steps {
                 sh 'cd MyWebApp1; pwd; mvn -X clean install -DskipTests'                 
                 echo 'Maven Build has Completed Successfully'   
             }
-        }
+        }*/
         stage('Build Docker Image') {
             steps {
                 echo "Print Existing Images"
