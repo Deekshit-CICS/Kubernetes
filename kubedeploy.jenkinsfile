@@ -27,7 +27,7 @@ pipeline {
                 sh 'docker images'
                 sh 'pwd'
                 echo "Building docker Image"
-                sh 'docker build -t dockerdk194/mytomcat /var/lib/jenkins/workspace/BuildDocker'
+                sh 'docker build -t dockerdk194/mytomcat /var/lib/jenkins/workspace/JavaSpringBoot-Kubernetes-Deployment'
             }
         }
         stage('Login to Docker HUB') {
@@ -50,7 +50,7 @@ pipeline {
                 projectId: env.PROJECT_ID,
                 clusterName: env.CLUSTER_NAME,
                 location: env.LOCATION,
-                manifestPattern: '/var/lib/jenkins/workspace/BuildDocker/mytomcat.yaml',
+                manifestPattern: '/var/lib/jenkins/workspace/JavaSpringBoot-Kubernetes-Deployment/mytomcat.yaml',
                 credentialsId: env.CREDENTIALS_ID,
                 verifyDeployments: true])
             }
