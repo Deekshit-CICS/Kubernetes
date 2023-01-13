@@ -10,7 +10,7 @@ pipeline {
     
     stages {
         
-        stage ('Checkout Dockerfile'){
+        stage ('Checkout Repository'){
             steps{
                 git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/Deekshit-CICS/Kubernetes.git'
             }
