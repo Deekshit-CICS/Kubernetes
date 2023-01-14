@@ -55,8 +55,8 @@ pipeline {
                 credentialsId: env.CREDENTIALS_ID,
                 verifyDeployments: true])
             }
-        }
-    }*/
+        }*/
+    }
     post{
     always {  
       sh 'docker logout'           
