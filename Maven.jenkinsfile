@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        
+        stage ('Checkout Repository'){
+            steps{
+                git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/Deekshit-CICS/Kubernetes.git'
+            }
+        }
+        stage('Building SpringBoot') {
+            steps {
+                sh 'cd MyWebApp1; pwd; sudo env "PATH=$PATH" mvn -X clean install -DskipTests'                 
+                echo 'Maven Build has Completed Successfully'   
+            }
+        }
+    }
+}
