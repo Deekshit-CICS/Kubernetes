@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Building SpringBoot') {
             steps {
-                sh 'cd MyWebApp1; pwd; env "PATH=$PATH" mvn -X install -DskipTests'                 
+                sh 'cd MyWebApp1; pwd; /opt/apache-maven-3.8.7/bin/mvn -X install -DskipTests'                 
                 echo 'Maven Build has Completed Successfully'   
             }
         }
