@@ -17,7 +17,7 @@ pipeline
             {
                   withCredentials([usernamePassword(credentialsId: 'Artifactory', passwordVariable: 'artifactory_psw', usernameVariable: 'artifactory_uid')]) 
                   {
-                    sh 'curl -u $artifactory_uid:$artifactory_psw -X GET "http://34.125.79.89:8082/artifactory/libs-snapshot-local/com/example/MyWebApp1/3.0.1-SNAPSHOT/MyWebApp1-3.0.1-20230122.121639-4.war"'
+                    sh 'curl -u $artifactory_uid:$artifactory_psw -X GET "http://34.125.79.89:8082/artifactory/libs-snapshot-local/com/example/MyWebApp1/3.0.1-SNAPSHOT/MyWebApp1-3.0.1-20230122.121639-4.war -O '~/'"'
                   }
             }
         }
