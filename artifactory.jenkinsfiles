@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build and Deploy Applications') {
+            steps {
+                build 'artifactory_jfrog_test'
+            }
+        }
+        stage('Create Docker Image') {
+            steps {
+                  withCredentials([usernamePassword(credentialsId: 'Artifactory', passwordVariable: 'artifactory_psw', usernameVariable: 'artifactory_uid')]) {
+                  sh "pwd"
+                }
+            }
+        }
+    }  
+}
