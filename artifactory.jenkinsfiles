@@ -8,6 +8,7 @@ pipeline
             steps 
             {
                 /* build 'artifactory_jfrog_test' */
+                echo "Test"
             }
         }
         stage('Create Docker Image') 
