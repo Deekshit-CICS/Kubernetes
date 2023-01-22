@@ -1,16 +1,23 @@
-pipeline {
+pipeline 
+{
     agent any
-    stages {
-        stage('Build and Deploy Applications') {
-            steps {
+    stages 
+    {
+        stage('Build and Deploy Applications') 
+        {
+            steps 
+            {
                 /* build 'artifactory_jfrog_test' */
             }
         }
-        stage('Create Docker Image') {
-            steps {
-                  withCredentials([usernamePassword(credentialsId: 'Artifactory', passwordVariable: 'artifactory_psw', usernameVariable: 'artifactory_uid')]) {
-                  sh "curl -u Artifactory:artifactory_psw -X PUT "http://34.125.79.89:8082/artifactory/libs-snapshot-local/com/example/MyWebApp1/3.0.1-SNAPSHOT/MyWebApp1-3.0.1-SNAPSHOT.war"
-                }
+        stage('Create Docker Image') 
+        {
+            steps 
+            {
+                  withCredentials([usernamePassword(credentialsId: 'Artifactory', passwordVariable: 'artifactory_psw', usernameVariable: 'artifactory_uid')]) 
+                  {
+                    sh "curl -u Artifactory:artifactory_psw -X PUT "http://34.125.79.89:8082/artifactory/libs-snapshot-local/com/example/MyWebApp1/3.0.1-SNAPSHOT/MyWebApp1-3.0.1-SNAPSHOT.war"
+                  }
             }
         }
     }  
