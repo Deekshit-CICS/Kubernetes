@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build and Deploy Applications') {
             steps {
-                build 'artifactory_jfrog_test'
+                /* build 'artifactory_jfrog_test' */
             }
         }
         stage('Create Docker Image') {
