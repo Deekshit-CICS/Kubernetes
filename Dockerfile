@@ -9,6 +9,6 @@ ADD https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27
 RUN tar -xvzf apache-tomcat-10.0.27.tar.gz
 RUN mv apache-tomcat-10.0.27/* /opt/tomcat
 EXPOSE 8080
-WORKDIR /var/lib/jenkins/workspace/JavaSpringBoot-Kubernetes-Deployment/
+WORKDIR /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline/
 COPY SpringJPAApp-0.0.1-SNAPSHOT.war /opt/tomcat/webapps
 CMD ["/opt/tomcat/bin/catalina.sh","run"]
