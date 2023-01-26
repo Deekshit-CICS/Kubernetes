@@ -11,7 +11,7 @@ pipeline
                 echo "Test"
             }
         }
-        stage('Create Docker Image') 
+        stage('Download Artifacts....') 
         {
             steps 
             {
