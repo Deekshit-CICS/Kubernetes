@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd MyWebApp1; pwd; sudo env "PATH=$PATH" mvn -X clean install -DskipTests'                 
+                sh 'cd MyWebApp1; pwd; sudo env "PATH=$PATH" mvn -X deploy -DskipTests'                 
                 echo 'Maven Build has Completed Successfully'   
             }
         }
