@@ -12,5 +12,5 @@ EXPOSE 8080
 WORKDIR /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline/MyWebApp1/target
 RUN pwd
 RUN ls -al
-COPY MyWebApp1-4.0.1-SNAPSHOT.war /opt/tomcat/webapps
+COPY /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline/MyWebApp1/target/MyWebApp1-4.0.1-SNAPSHOT.war /opt/tomcat/webapps
 CMD ["/opt/tomcat/bin/catalina.sh","run"]
