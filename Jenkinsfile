@@ -13,12 +13,12 @@ pipeline {
                 git branch: 'main', changelog: false, credentialsId: 'GitHub', poll: false, url: 'https://github.com/Deekshit-CICS/Kubernetes.git'
             }
         }
-        stage('Build & Deploy to Artifactory') {
-            steps {
-                sh 'cd MyWebApp1; pwd; /opt/apache-maven-3.8.7/bin/mvn -X deploy'                 
-                echo 'Maven Build has Completed Successfully'   
-            }
-        }
+//         stage('Build & Deploy to Artifactory') {
+//             steps {
+//                 sh 'cd MyWebApp1; pwd; /opt/apache-maven-3.8.7/bin/mvn -X deploy'                 
+//                 echo 'Maven Build has Completed Successfully'   
+//             }
+//         }
         stage('Build Docker Image') {
             steps {
                 echo "Print Existing Images"
