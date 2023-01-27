@@ -1,3 +1,4 @@
+def app_version = env.Application_Version
 pipeline {
     agent any
     environment {     
@@ -6,6 +7,7 @@ pipeline {
     CLUSTER_NAME = 'deploydk'
     LOCATION = 'us-central1-c'
     CREDENTIALS_ID = 'My First Project'
+    APPVERSION = 
     }
     stages {   
         stage ('Checkout Repository'){
@@ -25,7 +27,7 @@ pipeline {
                 sh 'docker images'
                 sh 'pwd'
                 echo "Building docker Image"
-                sh 'docker build -t dockerdk194/mywebapp1 /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline'
+                sh 'docker build -t dockerdk194/mywebapp1 /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline --build-arg app_version=${app_versiom}'
             }
         }
         stage('Login to Docker HUB') {
