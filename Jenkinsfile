@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {     
-//     DOCKERHUB_CREDENTIALS= credentials('DockerHub')     
+    DOCKERHUB_CREDENTIALS= credentials('DockerHub')     
     PROJECT_ID = 'utility-vista-372807'
     CLUSTER_NAME = 'deploydk'
     LOCATION = 'us-central1-c'
@@ -19,13 +19,13 @@ pipeline {
                 echo 'Maven Build has Completed Successfully'   
             }
         }
-        /* stage('Build Docker Image') {
+        stage('Build Docker Image') {
             steps {
                 echo "Print Existing Images"
                 sh 'docker images'
                 sh 'pwd'
                 echo "Building docker Image"
-                sh 'docker build -t dockerdk194/mytomcat /var/lib/jenkins/workspace/JavaSpringBoot-Kubernetes-Deployment'
+                sh 'docker build -t dockerdk194/mywebapp1 /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline'
             }
         }
         stage('Login to Docker HUB') {
@@ -36,11 +36,11 @@ pipeline {
         }
         stage('Push Image to Docker Registry') {
             steps {
-                sh 'docker push dockerdk194/mytomcat'                 
+                sh 'docker push dockerdk194/mywebapp1'                 
                 echo 'Push Image Completed'   
             }
         }
-
+    /*
         stage('Deploy to GKE') {
             steps{
                 step([
@@ -54,10 +54,10 @@ pipeline {
             }
         }*/
     }
-    /*post{
+    post{
     always {  
       sh 'docker logout'           
     }      
-  } */
+  } 
 }
 
