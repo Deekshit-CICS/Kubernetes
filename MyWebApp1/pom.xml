@@ -41,6 +41,13 @@
 		    <version>10.1.1</version>
 		</dependency>  -->
 	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>artifactory1-releases</name>
+			<url>http://34.125.131.240:8081/artifactory/libs-snapshot-local</url>
+		</repository>
+	</distributionManagement>
 
 	<build>
 		<plugins>
