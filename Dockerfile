@@ -1,5 +1,4 @@
 ARG app_version
-RUN echo "application version $app_version"
 FROM centos:latest
 RUN cd /etc/yum.repos.d/
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
@@ -12,5 +11,6 @@ RUN tar -xvzf apache-tomcat-10.0.27.tar.gz
 RUN mv apache-tomcat-10.0.27/* /opt/tomcat
 EXPOSE 8080
 WORKDIR /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline
+RUN echo "application version $app_version"
 COPY "/MyWebApp1/target/MyWebApp1-${app_version}-SNAPSHOT.war" /opt/tomcat/webapps
 CMD ["/opt/tomcat/bin/catalina.sh","run"]
