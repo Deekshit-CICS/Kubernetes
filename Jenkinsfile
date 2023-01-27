@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd MyWebApp1; pwd; sudo env "PATH=$PATH" mvn -X deploy -s /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline/settings.xml'                 
+                sh 'cd MyWebApp1; pwd; sudo env "PATH=$PATH" mvn -X compile -s /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline/settings.xml'                 
                 echo 'Maven Build has Completed Successfully'   
             }
         }
