@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.1-SNAPSHOT</version>
+		<version>3.0.1-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>MyWebApp1</artifactId>
-	<version>3.0.1-SNAPSHOT</version>
+	<version>4.0.1-SNAPSHOT</version>
 	<name>MyWebApp1</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
