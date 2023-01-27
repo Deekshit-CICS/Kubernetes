@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {     
-    DOCKERHUB_CREDENTIALS= credentials('DockerHub')     
+//     DOCKERHUB_CREDENTIALS= credentials('DockerHub')     
     PROJECT_ID = 'utility-vista-372807'
     CLUSTER_NAME = 'deploydk'
     LOCATION = 'us-central1-c'
