@@ -15,6 +15,12 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'cd MyWebApp1; pwd; /opt/apache-maven-3.8.7/bin/mvn -X compile'                 
+                echo 'Maven Build has Completed Successfully'   
+            }
+        }
+        stage('Deploy to Artifactory') {
+            steps {
                 sh 'cd MyWebApp1; pwd; /opt/apache-maven-3.8.7/bin/mvn -X deploy'                 
                 echo 'Maven Build has Completed Successfully'   
             }
