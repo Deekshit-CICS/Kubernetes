@@ -1,4 +1,3 @@
-def app_version = env.Application_Version
 pipeline {
     agent any
     environment {     
