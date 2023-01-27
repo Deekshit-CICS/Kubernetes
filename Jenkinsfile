@@ -25,7 +25,7 @@ pipeline {
                 sh 'docker images'
                 sh 'pwd'
                 echo "Building docker Image"
-                sh 'docker build --no-cache -t dockerdk194/mywebapp1 /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline'
+                sh 'docker build -t dockerdk194/mywebapp1 /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline'
             }
         }
         stage('Login to Docker HUB') {
