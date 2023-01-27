@@ -10,12 +10,12 @@ pipeline {
     stages {   
         stage ('Checkout Repository'){
             steps{
-                git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/Deekshit-CICS/Kubernetes.git'
+                git branch: 'main', changelog: false, credentialsId: 'GitHub', poll: false, url: 'https://github.com/Deekshit-CICS/Kubernetes.git'
             }
         }
         stage('Build') {
             steps {
-                sh 'cd MyWebApp1; pwd; sudo env "PATH=$PATH" mvn -X compile -s /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline/settings.xml'                 
+                sh 'cd MyWebApp1; pwd; /opt/apache-maven-3.8.7/bin/mvn -X compile -s /var/lib/jenkins/workspace/SpringBoot_CICD_Pipeline/settings.xml'                 
                 echo 'Maven Build has Completed Successfully'   
             }
         }
