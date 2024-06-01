@@ -15,7 +15,7 @@
 	<name>MyWebApp1</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -42,13 +42,17 @@
 		</dependency>  -->
 	</dependencies>
 	<distributionManagement>
-		<repository>
-			<id>central</id>
-			<name>artifactory1-releases</name>
-			<url>http://34.125.131.240:8081/artifactory/libs-snapshot-local</url>
-		</repository>
+	    <repository>
+	        <id>central</id>
+	        <name>instance-20240601-095454-releases</name>
+	        <url>http://104.154.67.230:8081/artifactory/webapp1</url>
+	    </repository>
+	    <snapshotRepository>
+	        <id>snapshots</id>
+	        <name>instance-20240601-095454-snapshots</name>
+	        <url>http://104.154.67.230:8081/artifactory/webapp1</url>
+	    </snapshotRepository>
 	</distributionManagement>
-
 	<build>
 		<plugins>
 			<plugin>
